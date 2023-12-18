@@ -1,23 +1,28 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
+import {requests} from './requests'
+import Banner from './components/Banner';
+import Navbar from './components/Navbar';
+import Row from './components/Row';
+import RowPoster from './components/RowPoster';
+import Foot from './components/Foot';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div >
+      <Navbar/>
+      <Banner fetchurl={requests.fetchNetflixOriginals}/>
+      <Row title="NetflixOriginals" fetchurl={requests.fetchNetflixOriginals}/>
+      <Row title="Trending" fetchurl={requests.fetchTrending}/>
+      <Row title="TopRated" fetchurl={requests.fetchTopRated}/>
+      <Row title="ActionMovies" fetchurl={requests.fetchActionMovies}/>
+      <Row title="ComedyMovies" fetchurl={requests.fetchComedyMovies}/>
+      <Row title="HorrorMovies" fetchurl={requests.fetchHorrorMovies}/>
+      <Row title="RomanceMovies" fetchurl={requests.fetchRomanceMovies}/>
+      <Row title="Documentaries" fetchurl={requests.fetchDocumentaries}/>
+      <RowPoster title="Trending" fetchurl={requests.fetchTrending}/>
+      <Foot/>
+    
     </div>
   );
 }
